@@ -1,5 +1,15 @@
 # TaskBoard
 
+commandes :
+
+ng new taskboard --routing --style=scss
+ng g c home
+ng g n about
+
+routing : 
+path: 'home', component: Home
+path: 'about', component: About
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.1.
 
 ## Development server
