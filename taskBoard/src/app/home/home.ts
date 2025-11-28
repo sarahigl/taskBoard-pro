@@ -16,9 +16,13 @@ export class Home {
   }
 
   count = 0;
+  intervalId: any;
   ngOnInit(){
     setInterval(() =>{
       this.count++;
     }, 500);
+  }
+  ngOnDestroy(){
+    clearInterval(this.intervalId)
   }
 }
