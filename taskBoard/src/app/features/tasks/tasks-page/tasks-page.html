@@ -1,0 +1,18 @@
+<p>tasks-page works!</p>
+@if (tasks$ | async; as tasks){
+    <ul>
+        @for (t of tasks; track t.id) {
+            <li> {{ t.title}}</li>
+        }
+    </ul>
+} @else {
+    <p>chargement des taches ...</p>
+}
+<hr/>
+ <h3>
+    Action 
+ </h3>
+
+<button (click)="addTask('New task')">
+  Ajouter une tâche
+</button>
