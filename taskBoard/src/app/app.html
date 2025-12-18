@@ -1,4 +1,13 @@
-<h1>Haul</h1>
-<app-home>
-</app-home>
-<app-about></app-about>
+<div class="hub-container">
+  <header>
+    <h1>Hub de Tâches</h1>
+    <nav>
+      <a routerLink="/" routerLinkActive="active">Accueil</a>
+      <a routerLink="/tasks" routerLinkActive="active">Tâches</a>
+      <a routerLink="/about" routerLinkActive="active">À propos</a>
+    </nav>
+  </header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

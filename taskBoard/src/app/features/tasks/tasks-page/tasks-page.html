@@ -1,18 +1,21 @@
-<p>tasks-page works!</p>
+<p class="title">tasks-page works!</p>
+
 @if (tasks$ | async; as tasks){
-    <ul>
+    <ul class="task-list">
         @for (t of tasks; track t.id) {
-            <li> {{ t.title}}</li>
+            <li class="task-item"> {{ t.title}}</li>
         }
     </ul>
 } @else {
-    <p>chargement des taches ...</p>
+    <p class="loading">chargement des taches ...</p>
 }
-<hr/>
- <h3>
-    Action 
- </h3>
 
-<button (click)="addTask('New task')">
+<hr class="separator"/>
+
+<h3 class="section-title">
+    Action 
+</h3>
+
+<button class="add-btn" (click)="addTask('New task')">
   Ajouter une tâche
 </button>

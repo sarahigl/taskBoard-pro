@@ -1,19 +1,6 @@
-<p>home : Liste des taches</p>
+<h3>TaskBoard home</h3>
+<p>Bienvenue sur TaskBoard, votre application de gestion de tâches simple et efficace.</p>
+<p>Utilisez le menu de navigation pour accéder à vos tâches et gérer votre liste de choses à faire.</p>
+<hr class="separator"/>
+<p>Amusez-vous bien !</p>
 
-@if (tasks$ | async; as tasks){
-    <ul>
-        @for (t of tasks; track t.id) {
-            <li> {{ t.title}}</li>
-        }
-    </ul>
-} @else {
-    <p>chargement des taches ...</p>
-}
-<hr/>
- <h3>
-    Action 
- </h3>
-
-<button (click)="addTask('New task')">
-  Ajouter une tâche
-</button>
