@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { of } from 'rxjs';
-import { delay } from 'rxjs';
+
 
 export interface TaskItem {
   id: number;
@@ -11,6 +10,9 @@ export interface TaskItem {
   providedIn: 'root',
 })
 export class Task {
+  getTasks(): TaskItem[] {
+    return [...this.tasks];
+  }
   private tasks: TaskItem[] = [
     { id: 1, title: "courses" },
     { id: 2, title: "sport" },
@@ -33,4 +35,8 @@ export class Task {
     this.tasksSubject.next(this.tasks);
   }
 
+  clearTasks() {
+  this.tasks = [];
+  this.tasksSubject.next(this.tasks);
+}
 }
