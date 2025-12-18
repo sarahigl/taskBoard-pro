@@ -3,11 +3,15 @@ import { BehaviorSubject } from 'rxjs';
 import { of } from 'rxjs';
 import { delay } from 'rxjs';
 
+export interface TaskItem {
+  id: number;
+  title: string;
+}
 @Injectable({
   providedIn: 'root',
 })
 export class Task {
-  private tasks = [
+  private tasks: TaskItem[] = [
     { id: 1, title: "courses" },
     { id: 2, title: "sport" },
     { id: 3, title: "devoir" }
@@ -19,13 +23,14 @@ export class Task {
   tasks$ = this.tasksSubject.asObservable();
 
   addTask(title: string){
-    const newTask = { id: ++this.lastId, title};
+    const newTask: TaskItem = { id: ++this.lastId, title };
     this.tasks.push(newTask);
     this.tasksSubject.next(this.tasks);
   }
 
-  // getTasks(){
-  //   return of(this.tasks).pipe(delay(1000));
-  // }
-  
+  deleteTask(id: number) {
+    this.tasks = this.tasks.filter(task => task.id !== id);
+    this.tasksSubject.next(this.tasks);
+  }
+
 }

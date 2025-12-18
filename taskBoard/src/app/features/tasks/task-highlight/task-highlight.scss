@@ -1,0 +1,28 @@
+.task-highlight {
+  background: #fff0f6;
+  border: 2px solid #d72660;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(215,38,96,0.08);
+  padding: 24px 20px 18px 20px;
+  margin: 24px auto 0 auto;
+  max-width: 400px;
+  text-align: center;
+  color: #d72660;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: box-shadow 0.2s;
+}
+
+.task-highlight h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: #b23a6f;
+  font-weight: 700;
+}
+
+.task-highlight p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #d72660;
+}

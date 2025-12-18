@@ -1,21 +1,29 @@
-<p class="title">tasks-page works!</p>
-
-@if (tasks$ | async; as tasks){
-    <ul class="task-list">
-        @for (t of tasks; track t.id) {
-            <li class="task-item"> {{ t.title}}</li>
-        }
-    </ul>
+<h2 class="title">Liste des tâches</h2>
+@if (tasks$ | async; as tasks) {
+<ul>
+    @for (t of tasks; track t.id) {
+    <li>
+        {{ t.title }}
+        <button type="button" class="highlight-btn" (click)="highlight(t)">
+        Mettre en avant
+        </button>
+        <button type="button" class="highlight-btn" (click)="deleteTask(t.id)">
+        Supprimer
+        </button>
+    </li>
+    }
+</ul>
 } @else {
-    <p class="loading">chargement des taches ...</p>
+<p>Chargement des tâches...</p>
 }
 
-<hr class="separator"/>
+<hr />
 
-<h3 class="section-title">
-    Action 
-</h3>
+<h3>Actions</h3>
+<form (submit)="addTask(taskInput.value); taskInput.value=''; $event.preventDefault();">
+  <input #taskInput type="text" placeholder="Titre de la tâche" required />
+  <button type="submit">Ajouter une tâche</button>
+</form>
 
-<button class="add-btn" (click)="addTask('New task')">
-  Ajouter une tâche
-</button>
+<!-- Zone d'injection du composant dynamique -->
+<div #highlightContainer></div>
