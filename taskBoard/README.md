@@ -49,3 +49,19 @@ ng build
 - Pas besoin d'appeler. getTasks() à chaque fois : la donnée est **vivante**.
 -'| async' gère l'abonnement et le désabonnement automatiquement.
 Le flux reste cohérent entre le service et la vue.
+
+## Séquence 3 — Lazy Loading & Composants dynamiques
+
+### Lazy Loading
+Le Lazy Loading (chargement paresseux) permet de charger certaines parties de l’application (modules ou routes) uniquement lorsque l’utilisateur en a besoin. Cela accélère le chargement initial de l’application et améliore les performances.
+
+Dans Angular, on structure l’application avec un dossier `features/` qui contient les différentes fonctionnalités (ex : `features/tasks`, `features/about`). Chaque feature peut avoir ses propres routes et être chargée dynamiquement via `loadChildren` dans le routeur principal.
+
+### Composant dynamique
+Un composant dynamique est un composant Angular qui n’est pas présent statiquement dans le template, mais qui est créé et inséré à la volée dans le DOM, selon les besoins de l’utilisateur.
+
+Pour cela, on utilise `ViewContainerRef` et la méthode `createComponent()` :
+- `ViewContainerRef` est une référence à un conteneur dans le template (souvent via `@ViewChild`).
+- `createComponent()` permet d’instancier dynamiquement un composant et de l’injecter dans ce conteneur.
+
+Cela permet d’afficher des composants à la demande, comme une mise en avant de tâche ou une modale.
