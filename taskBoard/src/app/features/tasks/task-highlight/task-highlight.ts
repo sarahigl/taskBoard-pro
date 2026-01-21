@@ -1,0 +1,17 @@
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+
+@Component({
+  selector: 'app-task-highlight',
+  imports: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    <div class="task-highlight">
+      <h3>Tâche mise en avant</h3>
+      <p>{{ title }}</p>
+    </div>
+  `,
+  styleUrls: ['./task-highlight.scss'],
+})
+export class TaskHighlight {
+  @Input() title = ''; // le composant peut recevoir une donnée (le titre ici)
+}

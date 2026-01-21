@@ -1,19 +1,7 @@
-<p>home : Liste des taches</p>
-
-@if (tasks$ | async; as tasks){
-    <ul>
-        @for (t of tasks; track t.id) {
-            <li> {{ t.title}}</li>
-        }
-    </ul>
-} @else {
-    <p>chargement des taches ...</p>
-}
-<hr/>
- <h3>
-    Action 
- </h3>
-
-<button (click)="addTask('New task')">
-  Ajouter une tâche
-</button>
+<div class="home-container">
+  <h3>Bienvenue sur TaskBoard</h3>
+  <p>Gérez vos tâches simplement, efficacement et avec style !</p>
+  <p>Utilisez le menu du hub pour naviguer entre vos tâches et découvrir l’application.</p>
+  <hr class="separator"/>
+  <p class="slogan">Organisez, priorisez, accomplissez… tout en douceur !</p>
+</div>
